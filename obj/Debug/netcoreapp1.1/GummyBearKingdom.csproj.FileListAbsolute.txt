@@ -1,0 +1,10 @@
+C:\Users\srava\Desktop\GummyBearKingdom\GummyBearKingdom\obj\Debug\netcoreapp1.1\GummyBearKingdom.csproj.CoreCompileInputs.cache
+C:\Users\srava\Desktop\GummyBearKingdom\GummyBearKingdom\obj\Debug\netcoreapp1.1\GummyBearKingdom.AssemblyInfoInputs.cache
+C:\Users\srava\Desktop\GummyBearKingdom\GummyBearKingdom\obj\Debug\netcoreapp1.1\GummyBearKingdom.AssemblyInfo.cs
+C:\Users\srava\Desktop\GummyBearKingdom\GummyBearKingdom\bin\Debug\netcoreapp1.1\GummyBearKingdom.deps.json
+C:\Users\srava\Desktop\GummyBearKingdom\GummyBearKingdom\bin\Debug\netcoreapp1.1\GummyBearKingdom.runtimeconfig.json
+C:\Users\srava\Desktop\GummyBearKingdom\GummyBearKingdom\bin\Debug\netcoreapp1.1\GummyBearKingdom.runtimeconfig.dev.json
+C:\Users\srava\Desktop\GummyBearKingdom\GummyBearKingdom\bin\Debug\netcoreapp1.1\GummyBearKingdom.dll
+C:\Users\srava\Desktop\GummyBearKingdom\GummyBearKingdom\bin\Debug\netcoreapp1.1\GummyBearKingdom.pdb
+C:\Users\srava\Desktop\GummyBearKingdom\GummyBearKingdom\obj\Debug\netcoreapp1.1\GummyBearKingdom.dll
+C:\Users\srava\Desktop\GummyBearKingdom\GummyBearKingdom\obj\Debug\netcoreapp1.1\GummyBearKingdom.pdb
