@@ -8,3 +8,4 @@ C:\Users\srava\Desktop\GummyBearKingdom\GummyBearKingdom\bin\Debug\netcoreapp1.1
 C:\Users\srava\Desktop\GummyBearKingdom\GummyBearKingdom\bin\Debug\netcoreapp1.1\GummyBearKingdom.pdb
 C:\Users\srava\Desktop\GummyBearKingdom\GummyBearKingdom\obj\Debug\netcoreapp1.1\GummyBearKingdom.dll
 C:\Users\srava\Desktop\GummyBearKingdom\GummyBearKingdom\obj\Debug\netcoreapp1.1\GummyBearKingdom.pdb
+C:\Users\srava\Desktop\GummyBearKingdom\GummyBearKingdom\obj\Debug\netcoreapp1.1\GummyBearKingdom.csprojResolveAssemblyReference.cache
