@@ -11,11 +11,10 @@
 {
     @Html.LabelFor(model => model.Name)
     @Html.EditorFor(model => model.Name)
-    <br />
+    <br /><br />
     @Html.LabelFor(model => model.Description)
-    <textarea @Html.EditorFor(model => model.Description) ></textarea>
-    <br />
-
+    @Html.EditorFor(model => model.Description)
+    <br /><br />
     @Html.LabelFor(model => model.Cost)
     @Html.EditorFor(model => model.Cost)
 
