@@ -1,9 +1,10 @@
-﻿﻿@model IEnumerable<GummyBearKingdom.Models.Product>
+﻿@model IEnumerable<GummyBearKingdom.Models.Product>
 
 @{
     ViewData["Title"] = "Products";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+
 <h2>Gummy Bear Kingdom</h2>
 <hr />
 <table class="table">
@@ -24,17 +25,17 @@
     {
         <tr>
             <td>
-                @Html.DisplayFor(x => listProduct.Name)
+               <a >@Html.DisplayFor(x => listProduct.Name)</a> 
             </td>
             <td>
                 @Html.DisplayFor(x => listProduct.Description)
             </td>
             <td>
-                @Html.DisplayFor(x => listProduct.Cost)
+               $ @Html.DisplayFor(x => listProduct.Cost)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { id = listProduct.ProductId }) |
-                @Html.ActionLink("Details", "Details", new { id = listProduct.ProductId }) |
+                @Html.ActionLink("Edit", "Edit", new { id = listProduct.ProductId })
+                @Html.ActionLink("Details", "Details", new { id = listProduct.ProductId })
                 @Html.ActionLink("Delete", "Delete", new { id = listProduct.ProductId })
             </td>
         </tr>
