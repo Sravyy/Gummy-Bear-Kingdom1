@@ -7,16 +7,15 @@ using System.Threading.Tasks;
 
 namespace GummyBearKingdom.Models
 {
-    [Table("Products")]
-    public class Product
+    [Table("Reviews")]
+    public class Review
     {
         [Key]
-        public int ProductId { get; set; }
-        public string Name { get; set; }
-        public int Cost { get; set; }
-        public string Description { get; set; }
         public int ReviewId { get; set; }
-        public virtual Review Review { get; set; }
+        public string Author { get; set; }
+        public int Rating { get; set; }
+        public string Content_Body { get; set; }
+        public virtual ICollection<Product> Products { get; set; }
 
     }
 }

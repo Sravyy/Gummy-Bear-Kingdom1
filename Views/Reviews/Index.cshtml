@@ -1,0 +1,48 @@
+﻿@model IEnumerable<GummyBearKingdom.Models.Review>
+
+@{
+    ViewData["Title"] = "Products";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Gummy Bear Kingdom</h2>
+<hr />
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Author)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Content_Body)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Rating)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var listReview in Model)
+    {
+        <tr>
+            <td>
+               <a >@Html.DisplayFor(x => listReview.Author)</a> 
+            </td>
+            <td>
+                @Html.DisplayFor(x => listReview.Content_Body)
+            </td>
+            <td>
+                @Html.DisplayFor(x => listReview.Rating)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = listReview.ReviewId })
+                @Html.ActionLink("Details", "Details", new { id = listReview.ReviewId })
+                @Html.ActionLink("Delete", "Delete", new { id = listReview.ReviewId })
+            </td>
+        </tr>
+    }
+</table>
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+
+<p>@Html.ActionLink("Back to Home", "Index", "Home")</p>
