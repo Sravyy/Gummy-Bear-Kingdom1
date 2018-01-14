@@ -4,7 +4,7 @@
     ViewData["Title"] = "Review - Create";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<h2>Add a new Product</h2>
+<h2>Review The Product</h2>
 <hr>
 
 @using (Html.BeginForm())
@@ -17,7 +17,12 @@
     <br /><br />
     @Html.LabelFor(model => model.Rating)
     @Html.EditorFor(model => model.Rating, new { maxlength = 5 })
-    
+    <br /><br />
+    @Html.LabelFor(model => model.Product.Name)
+    @Html.DropDownList("ProductId")
+    <br />
+
+
 
     <input type="submit" value="Create" class="btn btn-default" />
 }

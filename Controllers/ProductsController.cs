@@ -16,20 +16,19 @@ namespace GummyBearKingdom.Controllers
         // GET: /<controller>/
         public IActionResult Index()
         {   
-            return View(db.Products.Include(x=>x.Review).ToList());
+            return View(db.Products.ToList());
         }
 
         public IActionResult Details(int id)
         {
             Product thisProduct = db.Products
-                               .Include(x=>x.Review)
+                               
                                .FirstOrDefault(x => x.ProductId == id);
             return View(thisProduct);
         }
 
         public IActionResult Create()
         {
-            ViewBag.ReviewId = new SelectList(db.Reviews, "ReviewId", "Rating");
             return View();
         }
 
@@ -45,7 +44,7 @@ namespace GummyBearKingdom.Controllers
         {   
 
             var thisProduct = db.Products.FirstOrDefault(x => x.ProductId == id);
-            ViewBag.ReviewId = new SelectList(db.Reviews, "ReviewId", "Rating");
+            
             return View(thisProduct);
         }
 

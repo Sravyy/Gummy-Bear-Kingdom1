@@ -18,9 +18,7 @@
         <th>
             @Html.DisplayNameFor(model => model.Cost)
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Review.Rating)
-        </th>
+        
 
 
         <th></th>
@@ -38,14 +36,12 @@
             <td>
                $ @Html.DisplayFor(x => listProduct.Cost)
             </td>
-            <td>
-                @Html.DisplayFor(x => listProduct.Review.Rating)
-            </td>
+          
             <td>
                 @Html.ActionLink("Edit", "Edit", new { id = listProduct.ProductId })
                 @Html.ActionLink("Details", "Details", new { id = listProduct.ProductId })
                 @Html.ActionLink("Delete", "Delete", new { id = listProduct.ProductId })
-                @Html.ActionLink("Add Review", "Review", new { id = listProduct.ProductId})
+                
             </td>
         </tr>
     }

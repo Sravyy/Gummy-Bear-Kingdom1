@@ -15,8 +15,29 @@ namespace GummyBearKingdom.Models
         public string Name { get; set; }
         public int Cost { get; set; }
         public string Description { get; set; }
-        public int ReviewId { get; set; }
-        public virtual Review Review { get; set; }
+        public virtual ICollection<Review> Reviews { get; set; }
 
+        public override bool Equals(System.Object otherProduct)
+        {
+            if (!(otherProduct is Product))
+            {
+                return false;
+            }
+            else
+            {
+                Product newProduct = (Product)otherProduct;
+                bool EqualId = this.ProductId.Equals(newProduct.ProductId);
+                bool EqualName = this.Name.Equals(newProduct.Name);
+                bool cost = this.Cost.Equals(newProduct.Cost);
+                bool desc = this.Description.Equals(newProduct.Description);
+
+                return (EqualId && EqualName && cost && desc );
+            }
+        }
+
+        public override int GetHashCode()
+        {
+            return this.ProductId.GetHashCode();
+        }
     }
 }
