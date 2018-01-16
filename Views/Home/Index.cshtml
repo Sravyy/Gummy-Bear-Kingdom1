@@ -1,12 +1,27 @@
 ﻿<html>
     <head>
         <title>Gummy Bear Kingdom</title>
+        <style>
+
+            a.classname {
+                background-image: url("https://media.giphy.com/media/1sEonL5e2UCxa/giphy.gif");
+                no-repeat top left;
+                display: block;
+                width: 150px;
+                height: 150px;
+                text-indent: -9999px; /* hides the link text */
+            }
+        </style>
     </head>
     <body>
         <h2>Gummy Bear Kingdom</h2>
-        <p>@Html.ActionLink("Gummy Bear Products", "Index", "Products")</p><img src="https://img0.etsystatic.com/218/0/5470846/il_340x270.1371440874_l8ce.jpg" alt="Gummy Bears" height="200" width="200" >
+        <%= @Html.ActionLink("Gummy Bear Products", "Index", "Products", new { @class = "classname" }) %>
+        
+        <img src="https://media.giphy.com/media/1sEonL5e2UCxa/giphy.gif" alt="Gummy Bears" >
       
-
-        <p>@Html.ActionLink("Product Reviews", "Index", "Reviews")</p><img src="https://i2.wp.com/coremixcapital.com/wp-content/uploads/2014/04/gummy-circle-300x220.png?resize=300%2C220" alt="Gummy Bears" height="200" width="200"/>
+        <br />
+        <br />
+        <%= @Html.ActionLink("View Product Reviews", "Index", "Reviews") %>
+        <img src="http://content.presentermedia.com/files/animsp/00012000/12483/woman_checks_it_off_her_list_md_wm.gif" alt="Gummy Bears" />
     </body>
 </html>

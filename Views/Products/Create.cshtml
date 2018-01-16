@@ -4,25 +4,42 @@
     ViewData["Title"] = "Product - Create";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<h2>Add a new Product</h2>
-<hr>
 
-@using (Html.BeginForm())
-{
-    @Html.LabelFor(model => model.Name) 
-    @Html.EditorFor(model => model.Name)
-    <br /><br />
-    @Html.LabelFor(model => model.Description)
-    @Html.EditorFor(model => model.Description)
-    <br /><br />
-    @Html.LabelFor(model => model.Cost)
-    @Html.EditorFor(model => model.Cost)
-    <br /><br />
-   
+<style>
+    .create {
+        color: white;
+    }
 
+    select {
+        color: black;
+        margin-left: 10px;
+    }
 
-    <input type="submit" value="Create" class="btn btn-default" />
+    input {
+        margin-left: 10px;
+        color: black;
+    }
+</style>
+
+<div class="create">
+    <h2>Add a new Product</h2>
+    <hr>
+
+    @using (Html.BeginForm())
+    {
+        @Html.LabelFor(model => model.Name)
+        @Html.EditorFor(model => model.Name)
+        <br /><br />
+        @Html.LabelFor(model => model.Description)
+        @Html.EditorFor(model => model.Description)
+        <br /><br />
+        @Html.LabelFor(model => model.Cost)
+        @Html.EditorFor(model => model.Cost)
+        <br /><br />
+
+        <input type="submit" value="Create" class="btn btn-danger" />
+        <br />
+    }
     <br />
-}   
-<br />
-@Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Back to List", "Index")
+</div>

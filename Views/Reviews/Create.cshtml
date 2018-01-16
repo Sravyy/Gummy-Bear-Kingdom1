@@ -4,27 +4,46 @@
     ViewData["Title"] = "Review - Create";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<h2>Review The Product</h2>
-<hr>
 
-@using (Html.BeginForm())
-{
-    @Html.LabelFor(model => model.Author)
-    @Html.EditorFor(model => model.Author)
-    <br /><br />
-    @Html.LabelFor(model => model.Content_Body)
-    @Html.EditorFor(model => model.Content_Body)
-    <br /><br />
-    @Html.LabelFor(model => model.Rating)
-    @Html.EditorFor(model => model.Rating, new { maxlength = 5 })
-    <br /><br />
-    @Html.LabelFor(model => model.Product.Name)
-    @Html.DropDownList("ProductId")
-    <br />
+<style>
+    .create{
+        color: white;
+    }
+
+    select{
+        color: black;
+        margin-left: 10px;
+    }
+
+    input{
+        margin-left: 10px;
+        color: black;
+    }
+
+</style>
+<div class="create">
+    <h2>Review The Product</h2>
+    <hr>
+
+    @using (Html.BeginForm())
+    {
+        @Html.LabelFor(model => model.Author)   
+        @Html.EditorFor(model => model.Author)
+        <br /><br />
+        @Html.LabelFor(model => model.Content_Body)   
+        @Html.EditorFor(model => model.Content_Body)
+        <br /><br />
+        @Html.LabelFor(model => model.Rating)   
+        @Html.EditorFor(model => model.Rating, new { maxlength = 5 })
+        <br /><br />
+        @Html.LabelFor(model => model.Product.Name)  
+        @Html.DropDownList("ProductId")
+        <br />
+        <br />
 
 
-
-    <input type="submit" value="Create" class="btn btn-default" />
-}
-
-@Html.ActionLink("Back to List", "Index")
+        <input type="submit" value="Create" class="btn btn-danger" />
+    }
+    <br /><br /><br /><br />
+    @Html.ActionLink("Back to List", "Index")
+</div>

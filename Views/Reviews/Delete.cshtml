@@ -5,12 +5,35 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Are you sure you want to delete this Review?</h2>
-<hr />
-@Html.DisplayNameFor(model => model.Author): @Html.DisplayFor(model => model.Author)
-@Html.DisplayNameFor(model => model.Content_Body): @Html.DisplayFor(model => model.Content_Body)
-@using (Html.BeginForm())
-{
-    <input type="submit" value="Delete" />
-}
-<p>@Html.ActionLink("Back to list", "Index")</p>
+<style>
+    .create {
+        color: white;
+    }
+
+    select {
+        color: black;
+        margin-left: 10px;
+    }
+
+    input {
+        margin-left: 10px;
+        color: black;
+    }
+</style>
+
+<div class="create">
+    <h2>Are you sure you want to delete this Review?</h2>
+    <hr />
+    @Html.DisplayNameFor(model => model.Author): @Html.DisplayFor(model => model.Author)
+    <br>
+    @Html.DisplayNameFor(model => model.Content_Body): @Html.DisplayFor(model => model.Content_Body)
+    <br />
+    <br />
+    
+    @using (Html.BeginForm())
+    {
+        <input type="submit" value="Delete" class="btn btn-danger"/>
+    }
+    <br />
+    <p>@Html.ActionLink("Back to list", "Index")</p>
+</div>

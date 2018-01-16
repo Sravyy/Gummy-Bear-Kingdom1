@@ -6,13 +6,33 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Product Details</h2>
-<hr />
+<style>
+    .create {
+        color: white;
+        font-size: 17px;
+    }
 
-<p>@Html.DisplayNameFor(model => model.Name): @Html.DisplayFor(model => model.Name)</p>
-<br />
-<p>@Html.DisplayNameFor(model => model.Description) : @Html.DisplayFor(model => model.Description)</p>
-<br />
-<p>@Html.DisplayNameFor(model => model.Cost) : @Html.DisplayFor(model => model.Cost)</p>
+    select {
+        color: black;
+        margin-left: 10px;
+    }
 
-<p>@Html.ActionLink("Edit", "Edit", new { id = Model.ProductId }) | @Html.ActionLink("Back to List", "Index")</p>
+    input {
+        margin-left: 10px;
+        color: black;
+       
+    }
+</style>
+
+<div class="create">
+    <h2>Product Details</h2>
+    <hr />
+
+    <p>@Html.DisplayNameFor(model => model.Name): @Html.DisplayFor(model => model.Name)</p>
+    
+    <p>@Html.DisplayNameFor(model => model.Description) : @Html.DisplayFor(model => model.Description)</p>
+   
+    <p>@Html.DisplayNameFor(model => model.Cost) : $ @Html.DisplayFor(model => model.Cost)</p>
+    <br />
+    <p>@Html.ActionLink("Edit", "Edit", new { id = Model.ProductId }) | @Html.ActionLink("Back to List", "Index")</p>
+</div>
