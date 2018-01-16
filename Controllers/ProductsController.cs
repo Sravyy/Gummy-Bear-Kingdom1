@@ -6,22 +6,34 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using GummyBearKingdom.Models;
-
+using GummyBearKingdom.Models.Repositories;
 
 namespace GummyBearKingdom.Controllers
 {
     public class ProductsController : Controller
     {
-        private GummyBearKingdomDbContext db = new GummyBearKingdomDbContext();
-        // GET: /<controller>/
+        private IProductRepository productRepo; 
+
+        public ProductsController(IProductRepository repo = null)
+        {
+            if (repo == null)
+            {
+                this.productRepo = new EFProductRepository();
+            }
+            else
+            {
+                this.productRepo = repo;
+            }
+        }
+
         public IActionResult Index()
         {   
-            return View(db.Products.ToList());
+            return View(productRepo.Products.ToList());
         }
 
         public IActionResult Details(int id)
         {
-            Product thisProduct = db.Products
+            Product thisProduct = productRepo.Products
                                
                                .FirstOrDefault(x => x.ProductId == id);
             return View(thisProduct);
@@ -35,15 +47,15 @@ namespace GummyBearKingdom.Controllers
         [HttpPost]
         public IActionResult Create(Product product)
         {
-            db.Products.Add(product);
-            db.SaveChanges();
+            productRepo.Save(product);
+            
             return RedirectToAction("Index");
         }
 
         public IActionResult Edit(int id)
         {   
 
-            var thisProduct = db.Products.FirstOrDefault(x => x.ProductId == id);
+            var thisProduct = productRepo.Products.FirstOrDefault(x => x.ProductId == id);
             
             return View(thisProduct);
         }
@@ -51,23 +63,21 @@ namespace GummyBearKingdom.Controllers
         [HttpPost]
         public IActionResult Edit(Product product)
         {
-            db.Entry(product).State = EntityState.Modified;
-            db.SaveChanges();
+            productRepo.Edit(product);   // Updated!
             return RedirectToAction("Index");
         }
 
         public IActionResult Delete(int id)
         {
-            var thisProduct = db.Products.FirstOrDefault(x => x.ProductId == id);
+            Product thisProduct = productRepo.Products.FirstOrDefault(x => x.ProductId == id);
             return View(thisProduct);
         }
 
         [HttpPost, ActionName("Delete")]
         public IActionResult DeleteConfirmed(int id)
         {
-            var thisProduct = db.Products.FirstOrDefault(x => x.ProductId == id);
-            db.Products.Remove(thisProduct);
-            db.SaveChanges();
+            Product thisProduct = productRepo.Products.FirstOrDefault(x => x.ProductId == id);
+            productRepo.Remove(thisProduct);  
             return RedirectToAction("Index");
         }
     }

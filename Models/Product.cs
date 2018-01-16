@@ -28,10 +28,8 @@ namespace GummyBearKingdom.Models
                 Product newProduct = (Product)otherProduct;
                 bool EqualId = this.ProductId.Equals(newProduct.ProductId);
                 bool EqualName = this.Name.Equals(newProduct.Name);
-                bool cost = this.Cost.Equals(newProduct.Cost);
-                bool desc = this.Description.Equals(newProduct.Description);
 
-                return (EqualId && EqualName && cost && desc );
+                return (EqualId && EqualName);
             }
         }
 

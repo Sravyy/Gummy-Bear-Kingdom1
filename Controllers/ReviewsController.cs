@@ -6,24 +6,35 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using GummyBearKingdom.Models;
-
+using GummyBearKingdom.Models.Repositories;
 
 namespace GummyBearKingdom.Controllers
 {
     public class ReviewsController : Controller
     {
+        private IReviewRepository reviewRepo;
+
+        public ReviewsController(IReviewRepository repo = null)
+        {
+            if (repo == null)
+            {
+                this.reviewRepo = new EFReviewRepository();
+            }
+            else
+            {
+                this.reviewRepo = repo;
+            }
+        }
+
         private GummyBearKingdomDbContext db = new GummyBearKingdomDbContext();
-        // GET: /<controller>/
         public IActionResult Index()
-        {   
-            return View(db.Reviews.Include(x => x.Product).ToList());
+        {
+            return View(reviewRepo.Reviews.ToList());
         }
 
         public IActionResult Details(int id)
         {
-            Review thisReview = db.Reviews
-                               .Include(x => x.Product)
-                               .FirstOrDefault(x => x.ReviewId == id);
+            Review thisReview = reviewRepo.Reviews.FirstOrDefault(items => items.ReviewId == id);
             return View(thisReview);
         }
 
@@ -34,39 +45,37 @@ namespace GummyBearKingdom.Controllers
         }
 
         [HttpPost]
-        public IActionResult Create(Review Review)
+        public IActionResult Create(Review review)
         {
-            db.Reviews.Add(Review);
-            db.SaveChanges();
+            reviewRepo.Save(review);   // Updated
+            // Removed db.SaveChanges() call
             return RedirectToAction("Index");
         }
 
         public IActionResult Edit(int id)
         {
+            Review thisReview = reviewRepo.Reviews.FirstOrDefault(items => items.ReviewId == id);
             ViewBag.ProductId = new SelectList(db.Products, "ProductId", "Name");
-            var thisReview = db.Reviews.FirstOrDefault(x => x.ReviewId == id);
             return View(thisReview);
         }
-
         [HttpPost]
         public IActionResult Edit(Review review)
         {
-            db.Entry(review).State = EntityState.Modified;
-            db.SaveChanges();
+            reviewRepo.Edit(review);
             return RedirectToAction("Index");
         }
 
         public IActionResult Delete(int id)
         {
-            var thisReview = db.Reviews.FirstOrDefault(x => x.ReviewId == id);
+            Review thisReview = reviewRepo.Reviews.FirstOrDefault(items => items.ReviewId == id);
             return View(thisReview);
         }
 
         [HttpPost, ActionName("Delete")]
         public IActionResult DeleteConfirmed(int id)
         {
-            var thisReview = db.Reviews.FirstOrDefault(x => x.ReviewId == id);
-            db.Reviews.Remove(thisReview);
+            Review thisReview = reviewRepo.Reviews.FirstOrDefault(items => items.ReviewId == id);
+            reviewRepo.Remove(thisReview);
             db.SaveChanges();
             return RedirectToAction("Index");
         }
