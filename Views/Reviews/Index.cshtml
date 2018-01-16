@@ -5,51 +5,74 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Gummy Bear Kingdom</h2>
-<hr />
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Author)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Content_Body)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Rating)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Product.Name)
-        </th>
-        <th></th>
-    </tr>
-
-    @foreach (var listReview in Model)
-    {
-        <tr>
-            <td>
-               <a >@Html.DisplayFor(x => listReview.Author)</a> 
-            </td>
-            <td>
-                @Html.DisplayFor(x => listReview.Content_Body)
-            </td>
-            <td>
-                @Html.DisplayFor(x => listReview.Rating)
-            </td>
-            <td>
-                @Html.DisplayFor(x => listReview.Product.Name)
-            </td>
-
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id = listReview.ReviewId })
-                @Html.ActionLink("Details", "Details", new { id = listReview.ReviewId })
-                @Html.ActionLink("Delete", "Delete", new { id = listReview.ReviewId })
-            </td>
-        </tr>
+<style>
+    .indexviews {
+        background-color: black;
+        color: white;
+        font-weight: 200;
+        padding-left: 15px;
+        padding-right: 15px;
+        padding-top: 30px;
+        padding-bottom: 30px;
+        border-left: 2px solid black;
+        border-right: 2px solid black;
+        height: 100%;
+        opacity: .80;
     }
-</table>
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
 
-<p>@Html.ActionLink("Back to Home", "Index", "Home")</p>
+    a {
+        color: #42f4f1;
+        font-weight: bold;
+    }
+</style>
+
+<div class="indexviews">
+    <h2>Gummy Bear Kingdom</h2>
+    <hr />
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Author)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Content_Body)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Rating)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Product.Name)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var listReview in Model)
+        {
+            <tr>
+                <td>
+                    <a>@Html.DisplayFor(x => listReview.Author)</a>
+                </td>
+                <td>
+                    @Html.DisplayFor(x => listReview.Content_Body)
+                </td>
+                <td>
+                    @Html.DisplayFor(x => listReview.Rating)
+                </td>
+                <td>
+                    @Html.DisplayFor(x => listReview.ProductId)
+                </td>
+
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = listReview.ReviewId }) |
+                    @Html.ActionLink("Details", "Details", new { id = listReview.ReviewId }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = listReview.ReviewId })
+                </td>
+            </tr>
+        }
+    </table>
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+
+    <p>@Html.ActionLink("Back to Home", "Index", "Home")</p>
+</div>

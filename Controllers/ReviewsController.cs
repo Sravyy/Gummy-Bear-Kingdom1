@@ -29,7 +29,7 @@ namespace GummyBearKingdom.Controllers
         private GummyBearKingdomDbContext db = new GummyBearKingdomDbContext();
         public IActionResult Index()
         {
-            return View(reviewRepo.Reviews.ToList());
+            return View(reviewRepo.Reviews. ToList());
         }
 
         public IActionResult Details(int id)
